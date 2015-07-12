@@ -1,0 +1,76 @@
+<?php if($this->getConfig('enabled')){ ?>	  <!-- start enable -->
+<?php
+	// Get data banner
+	$slide = $this->getDataBanner1();
+	$path = Mage::getBaseUrl('media');					
+	$width = $this->getConfig('width');
+	$height = $this->getConfig('height');
+	$speed = $this->getConfig('speed');
+	$interval = $this->getConfig('interval');
+	$qty_Item = $this->getConfig('qty_item');
+	$mode = $this->getConfig('animation');					
+	switch ( $mode ) {
+		case 'flexslider-slide': $effect = 'slide'; break;
+		case 'flexslider-fade': $effect = 'fade'; break;		
+	}					
+	/* Get max item & qty item */
+	if ($qty_Item > count($slide)) {
+		$qty_Item = count($slide);
+	}
+?>
+	<!-- <div class="ma-banner1-container">
+		<div id="slideshowWrapper"> -->	
+			<div class="flexslider" id="flexslider">
+				<ul class="slides">
+					<?php
+					$i = 1;
+					foreach($slide as $s)
+					{
+						if($i <= $qty_Item) {
+							//Get images slide show
+							$st1 = $s['image'];
+							$p1 = strpos($st1,'slider');
+							$st2 = substr($st1,$p1+7);
+							$p2 = strpos($st2,'"');
+							$imag = substr($st2,0,$p2);
+					?>
+						<?php if( $s['link'] ) { ?>
+							<li>
+								<a href="<?php echo $s['link'];?>">
+									<img src="<?php echo $path.'cpcoder/slider/'.$imag;?>"/>
+								</a>	
+							</li> 
+							<?php } else { ?>
+							<li>
+								<img src="<?php echo $path.'cpcoder/slider/'.$imag;?>"/>
+							</li>	
+						<?php } ?>
+					<?php
+							}//end if
+							$i++;
+						} // end foreach
+					?>	
+				</ul>
+			</div>
+		<!-- </div>
+	</div> -->
+	<script type="text/javascript">
+	/*jQuery(function(){ 
+		//Banner Dimension
+		jQuery('#slideshowWrapper')
+		.css("width","<?php echo $width; ?>px")
+		.css("height","<?php echo $height; ?>px");
+		// Can also be used with $(document).ready()
+	});
+	jQuery(window).load(function() {
+		  jQuery('.flexslider').flexslider({
+			animation: "<?php echo $effect;?>",
+			slideshowSpeed: <?php echo $interval; ?>, // default interval between image change
+			initDelay: <?php echo $speed; ?>, // default animation transition speed
+			easing: "swing",			
+			itemWidth: <?php echo $width; ?>
+			//asNavFor: '#slider'			
+		  });
+		});*/
+	</script>
+<?php } ?> <!-- end enable -->

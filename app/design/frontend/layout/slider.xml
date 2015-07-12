@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <cms_index_index>
+		<reference name="head">
+			<!-- Flexislider CSS -->
+			<action method="addCss" ifconfig="slider/slider_config/enabled"><stylesheet>cpcoder/css/flexslider.css</stylesheet></action>
+			<!-- Flexislider JS -->
+			<!-- <action method="addJs" ifconfig="slider/slider_config/enabled"><script>cpcoder/jquery-1.11.0.js</script></action>
+			<action method="addJs" ifconfig="slider/slider_config/enabled"><script>cpcoder/jquery.flexslider.js</script></action>
+			<action method="addJs" ifconfig="slider/slider_config/enabled"><script>cpcoder/jquery.easing.1.3.js</script></action> -->
+        </reference>
+        <reference name="content">
+            <block type="slider/slider" before="-" name="slider" template="cpcoder/slider/slider.phtml" />
+        </reference>
+    </cms_index_index>
+</layout> 

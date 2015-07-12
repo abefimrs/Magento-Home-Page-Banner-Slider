@@ -1,0 +1,13 @@
+<?php if($this->getConfig('enabled')){ ?>	  <!-- start enable -->
+	<?php
+		$mode = $this->getConfig('animation');
+		switch ( $mode ) {
+			case 'flexslider-slide':
+				echo $this->getLayout()->createBlock('slider/slider')->setTemplate('cpcoder/slider/flexslider.phtml')->toHtml();
+				break;	
+			case 'flexslider-fade':
+				echo $this->getLayout()->createBlock('slider/slider')->setTemplate('cpcoder/slider/flexslider.phtml')->toHtml();
+				break;		
+		}
+	?>
+<?php } ?>

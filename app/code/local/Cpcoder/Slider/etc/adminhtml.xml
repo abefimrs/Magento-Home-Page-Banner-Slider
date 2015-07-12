@@ -1,0 +1,44 @@
+<?xml version="1.0"?> 
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<slider>
+										<title>Cpcoder Slider</title>
+									</slider>
+								</children>
+							</config>
+						</children>
+					</system>	
+					<cpcoder translate="title" module="slider">
+						<title>Cpcoder</title>
+						<sort_order>71</sort_order>               
+						<children>
+							<slider translate="title" module="slider">
+								<title>Slider</title>
+								<sort_order>0</sort_order>
+								<children>
+									<items translate="title" module="slider">
+										<title>Manage Items</title>
+										<sort_order>0</sort_order>
+										<action>slider/adminhtml_slider</action>
+									</items>
+									<configuration>
+										<title>Configuration</title>
+										<sort_order>1</sort_order>
+										<action>adminhtml/system_config/edit/section/slider</action>
+									</configuration>
+								</children>
+							</slider>
+						</children>
+					</cpcoder>					
+				</children>
+			</admin>
+        </resources>
+	</acl>
+</config>
